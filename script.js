@@ -48,11 +48,14 @@ chatForm.addEventListener("submit", async (e) => {
 
   try {
     // Send request to your Cloudflare Worker endpoint
-    const response = await fetch("https://your-cloudflare-worker-url/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages }),
-    });
+    const response = await fetch(
+      "https://lorealchatbot-worker.waltersebraham.workers.dev/",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages }),
+      }
+    );
     const data = await response.json();
     // Get the assistant's reply
     const aiReply =
